@@ -3,7 +3,6 @@ require_once '../config/database.php';
 require_once '../middleware/auth.php';
 checkAuth();
 
-// Get fakultas name if fakultas role
 $fakultasName = '';
 if ($_SESSION['fakultas_id']) {
     $stmt = $conn->prepare("SELECT nama FROM fakultas WHERE id = ?");
@@ -19,202 +18,326 @@ if ($_SESSION['fakultas_id']) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Risk Management UIN Sunan Kalijaga</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: #f0f2f5;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 250px;
-            background: #1a3c40;
-            padding: 20px;
-            color: white;
-        }
-
-        .sidebar .logo {
-            font-size: 24px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #2d5a5e;
-        }
-
-        .sidebar .menu a {
-            display: block;
-            padding: 12px 15px;
-            color: white;
-            text-decoration: none;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .sidebar .menu a:hover {
-            background: #2d5a5e;
-        }
-
-        .sidebar .menu i {
-            margin-right: 10px;
-            width: 20px;
-        }
-
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-
-        .header {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header .user-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .header .user-info .avatar {
-            width: 40px;
-            height: 40px;
-            background: #1a3c40;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .stat-card h3 {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .stat-card .value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a3c40;
-        }
-
-        .recent-risks {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .recent-risks h2 {
-            margin-bottom: 20px;
-            color: #1a3c40;
-        }
-
-        .logout-btn {
-            background: #dc3545;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .logout-btn:hover {
-            background: #c82333;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="responsiveStyle.css">
+    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- side bar -->
+     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
-        <div class="logo">
-            Risk Management
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span> <span>Accusoft</span></h2>
         </div>
-        <div class="menu">
-            <a href="index.php"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="#"><i class="fas fa-chart-bar"></i> Risk Assessment</a>
-            <a href="#"><i class="fas fa-tasks"></i> Mitigation Plans</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Reports</a>
-            <?php if ($_SESSION['role'] === 'admin'): ?>
-            <a href="#"><i class="fas fa-users"></i> Manage Users</a>
-            <?php endif; ?>
-            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+  
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="" class="active"><span class="las la-igloo"></span>
+                    <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-igloo"></span>
+                    <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-users"></span>
+                    <span>Customor</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-clipboard-list"></span>
+                    <span>Projects</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-shopping-bag"></span>
+                    <span>orders</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-receipt"></span>
+                    <span>Inventory</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-user-circle"></span>
+                    <span>Accounts</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-clipboard-list"></span>
+                    <span>Tasks</span></a>
+                </li>
+            </ul>
         </div>
     </div>
 
+    <!-- side bar -->
+    
+    <!-- main content -->
     <div class="main-content">
-        <div class="header">
-            <div class="user-info">
-                <div class="avatar">
-                    <?php echo strtoupper(substr($_SESSION['email'], 0, 1)); ?>
-                </div>
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                Dashboard
+            </h2>  
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="search here">
+            </div>
+
+            <div class="user-wrapper">
+                <img src="./asset/picture.jpg" width="30px" height="30px">
                 <div>
-                    <h3><?php echo htmlspecialchars($_SESSION['email']); ?></h3>
-                    <small><?php echo $fakultasName ? $fakultasName : 'Administrator'; ?></small>
+                    <h4>John Doe</h4>
+                    <small>Super Admin</small>
                 </div>
             </div>
-            <a href="logout.php" class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-        </div>
+        </header>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>Total Risks</h3>
-                <div class="value">12</div>
-            </div>
-            <div class="stat-card">
-                <h3>High Priority</h3>
-                <div class="value">3</div>
-            </div>
-            <div class="stat-card">
-                <h3>In Progress</h3>
-                <div class="value">5</div>
-            </div>
-            <div class="stat-card">
-                <h3>Completed</h3>
-                <div class="value">4</div>
-            </div>
-        </div>
+        <main>
 
-        <div class="recent-risks">
-            <h2>Recent Risk Assessments</h2>
-            <!-- You can add a table or list of recent risks here -->
-            <p style="color: #666; text-align: center; padding: 20px;">
-                No recent risk assessments found.
-            </p>
-        </div>
+            <div class="cards">
+                <div class="card-single">
+                    <div>
+                        <h1>54</h1>
+                        <span>Customers</span>
+                    </div>
+                    <div>
+                        <span class="las la-users"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1>79</h1>
+                        <span>Projects</span>
+                    </div>
+                    <div>
+                        <span class="las la-clipboard"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1>124</h1>
+                        <span>orders</span>
+                    </div>
+                    <div>
+                        <span class="las la-users"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div> 
+                        <h1>$6k</h1>
+                        <span>Income</span>
+                    </div>
+                    <div>
+                        <span class="lab la-google-wallet"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Recent Projects</h3>
+
+                            <button>See all<span class="ls la-arrow-right">
+                            </span></button>
+                        </div>
+
+                        <div class="card-body">
+                          <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Project Title</td>
+                                            <td>Departement</td>
+                                            <td>Status</td>
+                                        </tr> 
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                review
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web Development</td>
+                                            <td>Fronted</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                In Progress
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ushop app</td>
+                                            <td>Mobile Team</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                pending
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                review
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web Development</td>
+                                            <td>Fronted</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                In Progress
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ushop app</td>
+                                            <td>Mobile Team</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                pending
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>UI/UX Design</td>
+                                            <td>UI Team</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                review
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Web Development</td>
+                                            <td>Fronted</td>
+                                            <td>
+                                                <span class="status pink"></span>
+                                                In Progress
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ushop app</td>
+                                            <td>Mobile Team</td>
+                                            <td>
+                                                <span class="status orange"></span>
+                                                pending
+                                            </td>
+                                        </tr>
+
+                                    </tbody> 
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="customers">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>News customer</h3>
+
+                            <button>See all <span class="las la-arrow-right">
+                            </span></button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lewis S. Cunningham</h4>
+                                        <small>CEO Excerpt</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lewis S. Cunningham</h4>
+                                        <small>CEO Excerpt</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lewis S. Cunningham</h4>
+                                        <small>CEO Excerpt</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <div class="contact">
+                                        <h4>Lewis S. Cunningham</h4>
+                                        <small>CEO Excerpt</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Lewis S. Cunningham</h4>
+                                        <small>CEO Excerpt</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                    <span class="las la-comment"></span>
+                                    <span class="las la-phone"></span>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+                </div> 
+            </div>
+
+        </main>
     </div>
-</body>
-</html>
+
+</body> 
+</html>   
