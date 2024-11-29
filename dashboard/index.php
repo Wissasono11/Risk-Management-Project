@@ -20,8 +20,8 @@ if ($_SESSION['fakultas_id']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="responsiveStyle.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +93,7 @@ if ($_SESSION['fakultas_id']) {
             </div>
 
             <div class="user-wrapper">
-                <img src="./asset/picture.jpg" width="30px" height="30px">
+                <img src="../assets/img/picture.jpg" width="30px" height="30px">
                 <div>
                     <h4>John Doe</h4>
                     <small>Super Admin</small>
@@ -257,7 +257,7 @@ if ($_SESSION['fakultas_id']) {
                         <div class="card-body">
                             <div class="customer">
                                 <div class="info">
-                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <img src="../assets/img/picture.jpg" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Lewis S. Cunningham</h4>
                                         <small>CEO Excerpt</small>
@@ -272,7 +272,7 @@ if ($_SESSION['fakultas_id']) {
 
                             <div class="customer">
                                 <div class="info">
-                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <img src="../assets/img/picture.jpg" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Lewis S. Cunningham</h4>
                                         <small>CEO Excerpt</small>
@@ -287,7 +287,7 @@ if ($_SESSION['fakultas_id']) {
 
                             <div class="customer">
                                 <div class="info">
-                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <img src="../assets/img/picture.jpg" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Lewis S. Cunningham</h4>
                                         <small>CEO Excerpt</small>
@@ -302,7 +302,7 @@ if ($_SESSION['fakultas_id']) {
 
                             <div class="customer">
                                 <div class="info">
-                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <img src="../assets/img/picture.jpg" width="40px" height="40px" alt="">
                                     <div class="contact">
                                         <h4>Lewis S. Cunningham</h4>
                                         <small>CEO Excerpt</small>
@@ -317,7 +317,7 @@ if ($_SESSION['fakultas_id']) {
 
                             <div class="customer">
                                 <div class="info">
-                                    <img src="./asset/picture.jpg" width="40px" height="40px" alt="">
+                                    <img src="../assets/img/picture.jpg" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Lewis S. Cunningham</h4>
                                         <small>CEO Excerpt</small>
