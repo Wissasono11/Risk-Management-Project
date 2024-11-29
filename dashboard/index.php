@@ -1,6 +1,7 @@
 <?php
 require_once '../config/database.php';
 require_once '../middleware/auth.php';
+require_once '../includes/functions.php';
 checkAuth();
 
 $fakultasName = '';
@@ -13,6 +14,9 @@ if ($_SESSION['fakultas_id']) {
         $fakultasName = $row['nama'];
     }
 }
+
+$module = isset($_GET['module']) ? $_GET['module'] : 'default';
+$modulePath = __DIR__ . "/modules/$module/index.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +30,7 @@ if ($_SESSION['fakultas_id']) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -39,36 +44,28 @@ if ($_SESSION['fakultas_id']) {
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active"><span class="las la-igloo"></span>
+                    <a href="" class="active"><span class="fas fa-home"></span>
                     <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-igloo"></span>
-                    <span>Dashboard</span></a>
+                    <a href=""><span class="fas fa-tasks"></span>
+                    <span>Risk Register</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-users"></span>
-                    <span>Customor</span></a>
+                    <a href=""><span class="fas fa-tools"></span>
+                    <span>Treatments</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-clipboard-list"></span>
-                    <span>Projects</span></a>
+                    <a href=""><span class="fas fa-file-alt"></span>
+                    <span>Reports</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-shopping-bag"></span>
-                    <span>orders</span></a>
+                    <a href=""><span class="fas fa-users"></span>
+                    <span>Manage Users</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-receipt"></span>
-                    <span>Inventory</span></a>
-                </li>
-                <li>
-                    <a href=""><span class="las la-user-circle"></span>
-                    <span>Accounts</span></a>
-                </li>
-                <li>
-                    <a href=""><span class="las la-clipboard-list"></span>
-                    <span>Tasks</span></a>
+                    <a href=""><span class="fas fa-cog"></span>
+                    <span>Settings</span></a>
                 </li>
             </ul>
         </div>
@@ -329,15 +326,11 @@ if ($_SESSION['fakultas_id']) {
                                     <span class="las la-phone"></span>
                                 </div>
                             </div>
-                        
                         </div>
-
                     </div>
                 </div> 
             </div>
-
         </main>
     </div>
-
 </body> 
 </html>   
