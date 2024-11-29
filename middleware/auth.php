@@ -21,7 +21,7 @@ function checkAuth() {
                 return true;
             }
         }
-        header("Location: /bbp/login.php");
+        header("Location: ../index.php");
         exit();
     }
     return true;
