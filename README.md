@@ -36,7 +36,7 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **Frontend**: HTML5, CSS3, JavaScript  
+- **Frontend**: HTML5, CSS3, PHP, JavaScript  
 - **Backend**: PHP 8.2  
 - **Database**: MariaDB 11.32  
 - **Keamanan**: Enkripsi SHA-256  
