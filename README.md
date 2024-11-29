@@ -61,11 +61,11 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 ✅ **Database Design**  
 ✅ **User Authentication**  
 ✅ **Basic Dashboard**  
-✅ **Risk Assessment Module**  
-✅ **Reporting System**  
-✅ **Faculty Integration**  
-🚧 **Testing & Documentation**  
-🚀 **Deployment**  
+🟨 **Risk Assessment Module**  
+🟨 **Reporting System**  
+🟨 **Faculty Integration**  
+🟨 **Testing & Documentation**  
+🟨 **Deployment**  
 
 ---
 
@@ -74,12 +74,10 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 ### 1. Clone Repository
 ```bash
 git clone https://github.com/yourusername/risk-management.git
-
-2. Setup Database
+```
+### 2. Setup Database
 Import file SQL dari direktori database/bbp_risk_management.sql.
-3. Konfigurasi Koneksi Database
+
+### 3. Konfigurasi Koneksi Database
 Edit file config/database.php sesuai kredensial Anda.
-4. Jalankan Server Pengembangan
-bash
-Copy code
-php -S localhost:8000
+### 4. Jalankan localhost/login.php
