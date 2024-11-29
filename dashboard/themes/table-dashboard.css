@@ -1,0 +1,116 @@
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+thead td {
+  font-weight: 700;
+}
+td {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #2222;
+}
+
+tr td:last-child {
+  display: flex;
+  align-items: center;
+}
+
+td .status {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.status.purple {
+  background: rebeccapurple;
+}
+
+.status.pink {
+  background: deeppink;
+}
+
+.status.orange {
+  background: orangered;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.customer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.info img {
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.info h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.info small {
+  font-weight: 600;
+  color: var(--text-grey);
+}
+
+.contact span {
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--main-color);
+}
+
+/* dibawah sidebar-menu sections  */
+#nav-toogle:checked + .sidebar {
+  width: 70px;
+}
+
+#nav-toogle:checked + .sidebar + .sidebar-brand,
+#nav-toogle:checked + .sidebar li {
+  padding-left: 1rem;
+  text-align: center;
+}
+
+#nav-toogle:checked + .sidebar li a {
+  padding-left: 0rem;
+}
+
+#nav-toogle :checked + .sidebar .sidebar-brand h2 span:last-child,
+#nav-toogle :checked + .sidebar li a span:last-child {
+  display: none;
+}
+
+#nav-toogle:checked ~ .main-content header {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+.main-content {
+  transition: margin-left 300ms;
+  margin-left: 345px;
+}
+
+#nav-toggle {
+  display: none;
+}
