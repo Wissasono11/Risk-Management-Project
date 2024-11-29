@@ -80,4 +80,4 @@ Import file SQL dari direktori database/bbp_risk_management.sql.
 
 ### 3. Konfigurasi Koneksi Database
 Edit file config/database.php sesuai kredensial Anda.
-### 4. Jalankan localhost/login.php
+### 4. Jalankan localhost/index.php
