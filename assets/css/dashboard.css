@@ -2,7 +2,6 @@
   --main-color: #0c959b;
   --color-dark: #1d2231;
   --text-grey: #8390a2;
-
   --black-pearl: #031716;
   --tiber: #043031;
   --atol: #0b7176;
@@ -34,8 +33,34 @@
 .sidebar-brand {
   display: flex;
   align-items: center;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.5rem;
   color: #fff;
+}
+
+.sidebar-brand h1 {
+  display: flex;
+  align-items: center;
+  padding-left: auto;
+}
+
+.sidebar-brand h1 span.fa,
+.sidebar-menu a span.fas {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-brand h1 span.fa,
+.sidebar-brand a span.fas {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar-brand h2 {
@@ -48,10 +73,6 @@
 .sidebar-brand h2 span {
   white-space: nowrap;
   font-size: 1.5rem;
-}
-
-.sidebar-brand h1 span.fa {
-  margin-right: 0.5rem;
 }
 
 .sidebar-brand h2 span.fa {
@@ -84,38 +105,6 @@
   color: #fff;
   font-weight: 600;
   gap: 0.5rem;
-}
-
-.sidebar-menu a span.fas,
-.sidebar-brand h1 span.fa {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sidebar-brand h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.sidebar-brand h1 span .fa-ge {
-  padding-left: 0;
-  margin-left: 0;
-}
-
-.sidebar-brand h1 span.fa,
-.sidebar-brand a span.fas {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sidebar-menu a.active {
