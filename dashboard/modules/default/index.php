@@ -230,9 +230,7 @@ $stats = getDashboardStats($_SESSION['fakultas_id']);
                                     <span class="las la-phone"></span>
                                 </div>
                             </div>
-                        
                         </div>
-
                     </div>
                 </div> 
             </div>
