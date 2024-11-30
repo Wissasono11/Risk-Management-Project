@@ -35,7 +35,7 @@ $user = getUserDetails($_SESSION['user_id']);
                             <tbody>
                                 <tr>
                                     <th>Fakultas</th>
-                                    <td><?= htmlspecialchars($user['fakultas_nama']) ?></td>
+                                    <td><?= htmlspecialchars($user['fakultas_nama'] ?? '-') ?></td>
                                 </tr>
                                 <tr>
                                     <th>Last Login</th>
