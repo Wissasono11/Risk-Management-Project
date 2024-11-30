@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Risk Management System</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
