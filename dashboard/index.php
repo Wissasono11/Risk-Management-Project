@@ -89,7 +89,7 @@ if ($action != 'index') {
         </li>
         <?php endif; ?>
         <li>
-            <a href=""><span class="fas fa-cog"></span>
+            <a href=""><span class="fas fa-user-alt"></span>
                 <span>Profile</span></a>
         </li>
         <li>
