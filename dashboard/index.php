@@ -92,6 +92,12 @@ if ($action != 'index') {
             <a href=""><span class="fas fa-cog"></span>
                 <span>Profile</span></a>
         </li>
+        <li>
+    <a href="logout.php">
+        <span class="fas fa-sign-out-alt"></span>
+        <span>Logout</span>
+    </a>
+</li>
     </ul>
 </div>
     </div>
