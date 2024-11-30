@@ -48,7 +48,7 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 
 | Nama         | Peran             | Tanggung Jawab                     |
 |--------------|-------------------|------------------------------------|
-| **Dipta**    | Backend Lead      | Database & API Development         |
+| **Dipta**    | Full Stack        | Database & API Development & Lead  |
 | **Agung**    | UI/UX             | Frontend Design & Implementation   |
 | **Bayu**     | Frontend          | Logic & Integration                |
 | **Faris**    | Support           | Documentation                      |
