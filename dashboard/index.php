@@ -88,6 +88,10 @@ if ($action != 'index') {
             </a>
         </li>
         <?php endif; ?>
+        <li>
+            <a href=""><span class="fas fa-cog"></span>
+                <span>Settings</span></a>
+        </li>
     </ul>
 </div>
     </div>
