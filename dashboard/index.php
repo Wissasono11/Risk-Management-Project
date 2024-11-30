@@ -41,14 +41,17 @@ if ($action != 'index') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
     <!-- side bar -->
      <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2> <span>Management Risk</span></h2>
+         <div class="sidebar-brand">
+            <h1><span class="fa fa-ge"></span></h1>
+            <h2><span>Management Risk</span></h2>
         </div>
   
         <div class="sidebar-menu">
