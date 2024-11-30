@@ -151,4 +151,14 @@ function logActivity($user_id, $activity, $details = null) {
    $stmt->bind_param("iss", $user_id, $activity, $details);
    $stmt->execute();
 }
+
+function getUserDetails($userId) {
+   global $conn;
+   $stmt = $conn->prepare("SELECT u.*, f.nama as fakultas_nama FROM users u 
+                          LEFT JOIN fakultas f ON u.fakultas_id = f.id
+                          WHERE u.id = ?");
+   $stmt->bind_param("i", $userId);
+   $stmt->execute();
+   return $stmt->get_result()->fetch_assoc();
+}
 ?>
