@@ -93,7 +93,7 @@ if ($action != 'index') {
                 <span>Profile</span></a>
         </li>
         <li>
-    <a href="logout.php">
+    <a href="logout.php" onclick="return confirmLogout()">
         <span class="fas fa-sign-out-alt"></span>
         <span>Logout</span>
     </a>
@@ -138,4 +138,5 @@ if ($action != 'index') {
 
 </body> 
     <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/logout.js"></script>
 </html>   
