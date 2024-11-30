@@ -69,13 +69,29 @@
 }
 
 .sidebar-menu a {
-  padding-left: 1rem;
-  display: block;
+  padding: 0.8rem 1.5rem;
+  align-items: center;
+  display: flex;
   color: #fff;
-  font-size: 1.1rem;
+  font-weight: 600;
+  gap: 0.5rem;
 }
 
-/* dashboard styling */
+.sidebar-menu a span.fas,
+.sidebar-brand h1 span.fa {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-brand h1 span.fa {
+  padding-left: 0;
+  margin-left: 0;
+}
+
 .sidebar-menu a.active {
   background: #fff;
   padding-top: 1rem;
@@ -84,11 +100,9 @@
   border-radius: 30px 0px 0px 30px;
 }
 .sidebar-menu a span:first-child {
-  font-size: 1.5rem;
-  padding-right: 1rem;
+  margin-left: 1rem;
 }
 
-/*  */
 .sidebar.collapsed {
   width: 70px;
 }
@@ -98,11 +112,12 @@
 }
 
 .sidebar.collapsed .sidebar-menu li {
-  padding-left: 0.5rem;
+  padding-left: 0;
 }
 
 .sidebar.collapsed .sidebar-menu a span:last-child {
   display: none;
+  margin-left: 0;
 }
 
 .sidebar.collapsed .sidebar-menu a {
