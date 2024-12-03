@@ -16,6 +16,9 @@ $user = getUserDetails($_SESSION['user_id']);
     <link rel="stylesheet" href="../../../assets/css/profile.css">
 </head>
 <body>
+<div class="header-section">
+        <h2>Profile</h2>
+    </div>
     <div class="container my-5">
         <div class="profile-section">
             <div class="profile-card">
