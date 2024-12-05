@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once '../config/database.php';
 require_once '../middleware/auth.php';
 require_once '../includes/functions.php';
@@ -27,6 +27,18 @@ if ($action != 'index') {
 } else {
     $modulePath .= "index.php";
 }
+
+$sql = "SELECT 
+    COUNT(*) as total_risks,
+    SUM(CASE WHEN likelihood_inherent * impact_inherent >= 15 THEN 1 ELSE 0 END) as high_risks,
+    MAX(updated_at) as last_update
+FROM risk_registers";
+
+if ($_SESSION['fakultas_id']) {
+    $sql .= " WHERE fakultas_id = " . $_SESSION['fakultas_id'];
+}
+
+$stats = $conn->query($sql)->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,27 +115,38 @@ if ($action != 'index') {
     </div>
 
     <div class="main-content">
-        <header>
-            <h2>
-                <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label>
-                Dashboard
-            </h2>  
+    <header>
+    <h2>
+        <label for="nav-toggle">
+            <span class="las la-bars"></span>
+        </label>
+        Dashboard
+    </h2>  
 
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="search here">
-            </div>
-
-            <div class="user-wrapper">
-    <img src="../assets/img/picture.jpg" width="30px" height="30px">
-    <div>
-        <h4><?= htmlspecialchars($_SESSION['email']) ?></h4>
-        <small><?= $fakultasName ? $fakultasName : 'Administrator' ?></small>
+    <!-- Risk Summary -->
+    <div class="risk-summary">
+        <div class="summary-item">
+            <span class="las la-calendar"></span>
+            <span>Period: <?= date('Y') ?></span>
+        </div>
+        <div class="summary-item <?= ($stats['high_risks'] ?? 0) > 0 ? 'warning' : 'safe' ?>">
+            <span class="las la-exclamation-circle"></span>
+            <span><?= $stats['high_risks'] ?? 0 ?> Critical Risks</span>
+        </div>
+        <div class="summary-item">
+            <span class="las la-sync"></span>
+            <span>Updated: <?= $stats['last_update'] ? date('d M Y', strtotime($stats['last_update'])) : date('d M Y') ?></span>
+        </div>
     </div>
-</div>
-        </header>
+
+    <div class="user-wrapper">
+        <img src="../assets/img/picture.jpg" width="30px" height="30px">
+        <div>
+            <h4><?= htmlspecialchars($_SESSION['email']) ?></h4>
+            <small><?= $fakultasName ? $fakultasName : 'Administrator' ?></small>
+        </div>
+    </div>
+</header>
 
         <main>
         <?php
