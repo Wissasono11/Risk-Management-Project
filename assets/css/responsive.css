@@ -1,0 +1,54 @@
+@media screen and (max-width: 960px) {
+
+  .risk-summary, .summary-item, .user-wrapper {
+    display: none;
+  }
+
+  .cards {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 1rem;
+  }
+
+  .card-single {
+      padding: 1.2rem;
+  }
+
+  .card-single h1 {
+      font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {  
+  .cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 0.5rem;
+  }
+
+  .card-single {
+      padding: 1rem;
+  }
+
+  .card-single h1 {
+      font-size: 1.8rem;
+  }
+
+  .card-single span {
+      font-size: 0.9rem;
+  }
+
+  .card-single .icon {
+      font-size: 1.5rem;
+  }
+
+  .main-content {
+    width: 80%;
+    min-height: 100vh;
+  } 
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+      grid-template-columns: 1fr;
+  }
+}
