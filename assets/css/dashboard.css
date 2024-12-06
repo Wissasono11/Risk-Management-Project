@@ -68,6 +68,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
 }
 
 .sidebar-brand h2 span {
@@ -203,16 +204,12 @@ header {
   transition: left 300ms;
 }
 
-#nav-toggle {
-  display: none;
-}
-
 header h2 {
   color: #222;
 }
 
 header label span {
-  font-size: 1.7rem;
+  font-size: 1rem;
   padding-right: 1rem;
 }
 
@@ -439,8 +436,4 @@ td .status {
 .main-content {
   transition: margin-left 300ms;
   margin-left: 345px;
-}
-
-#nav-toggle {
-  display: none;
 }
