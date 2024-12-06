@@ -61,8 +61,14 @@ echo "<!-- Result count: " . count($recent_activities) . " -->"; // Untuk meliha
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 <link rel="stylesheet" href="../../../assets/css/default.css">
 <script src="../../../assets/js/dashboard-chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts(<?= json_encode($risk_distribution) ?>);
+});
+</script>
 
 <!-- Risk Summary Cards -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <div class="cards">
     <div class="card-single">
         <div>
