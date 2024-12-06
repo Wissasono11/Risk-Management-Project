@@ -1,6 +1,41 @@
+@media screen and (max-width: 1400px) {
+  header {
+    padding: 0.8rem 1.2rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
+  }
+
+  .risk-summary {
+    gap: 1rem;
+  }
+
+  .summary-item {
+    font-size: 0.85rem;
+  }
+
+  .user-wrapper h4 {
+    font-size: 0.9rem;
+  }
+
+  .user-wrapper small {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+
+
+  .risk-summary, .summary-item{
+    display: none;
+  }
+
+}
+
 @media screen and (max-width: 960px) {
 
-  .risk-summary, .summary-item, .user-wrapper {
+  .risk-summary, .summary-item {
     display: none;
   }
 
@@ -25,6 +60,10 @@
       padding: 0.5rem;
   }
 
+  .user-wrapper {
+    display: none;
+  }
+
   .card-single {
       padding: 1rem;
   }
@@ -45,6 +84,10 @@
     width: 80%;
     min-height: 100vh;
   } 
+
+  header h2 {
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
