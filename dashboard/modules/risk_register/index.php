@@ -23,59 +23,61 @@ $risks = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <div class="header-section">
         <h2>Risk Register</h2>
         <button class="btn-add" onclick="window.location='index.php?module=risk_register&action=create'">
+            <span class="las la-plus"></span>
             Add New Risk
         </button>
     </div>
 
     <div class="table-section">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Objective</th>
-                    <th>Risk Event</th>
-                    <th>Category</th>
-                    <th>Level</th>
-                    <th>PIC</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (empty($risks)): ?>
-                    <tr>
-                        <td colspan="7" class="text-center">No data available</td>
-                    </tr>
-                <?php else: ?>
-                    <?php foreach($risks as $i => $risk): ?>
+        <div class="card">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td><?= $i + 1 ?></td>
-                            <td><?= htmlspecialchars($risk['objective']) ?></td>
-                            <td><?= htmlspecialchars($risk['risk_event']) ?></td>
-                            <td><?= htmlspecialchars($risk['kategori_nama']) ?></td>
-                            <td>
-                                <?php 
-                                $level = calculateRiskLevel($risk['likelihood_inherent'], $risk['impact_inherent']);
-                                ?>
-                                <span class="badge <?= $level['color'] ?>">
-                                    <?= $level['label'] ?>
-                                </span>
-                            </td>
-                            <td><?= htmlspecialchars($risk['risk_owner']) ?></td>
-                            <td class="action-buttons">
-                                <button class="btn-view" onclick="window.location='index.php?module=risk_register&action=view&id=<?= $risk['id'] ?>'">
-                                    View
-                                </button>
-                                <button class="btn-edit" onclick="window.location='index.php?module=risk_register&action=edit&id=<?= $risk['id'] ?>'">
-                                    Edit
-                                </button>
-                                <button class="btn-delete" onclick="confirmDelete(<?= $risk['id'] ?>)">
-                                    Delete
-                                </button>
-                            </td>
+                            <th>#</th>
+                            <th>Objective</th>
+                            <th>Risk Event</th>
+                            <th>Category</th>
+                            <th>Level</th>
+                            <th>PIC</th>
+                            <th>Actions</th>
                         </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($risks)): ?>
+                            <tr>
+                                <td colspan="7" class="text-center">No data available</td>
+                            </tr>
+                        <?php else: ?>
+                            <?php foreach($risks as $i => $risk): ?>
+                                <tr>
+                                    <td><?= $i + 1 ?></td>
+                                    <td><?= htmlspecialchars($risk['objective']) ?></td>
+                                    <td><?= htmlspecialchars($risk['risk_event']) ?></td>
+                                    <td><?= htmlspecialchars($risk['kategori_nama']) ?></td>
+                                    <td>
+                                        <span class="status <?= strtolower($level['level']) ?>">
+                                            <?= $level['label'] ?>
+                                        </span>
+                                    </td>
+                                    <td><?= htmlspecialchars($risk['risk_owner']) ?></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-view">
+                                            <span class="las la-eye"></span>
+                                        </button>
+                                        <button class="btn-edit">
+                                            <span class="las la-pen"></span>
+                                        </button>
+                                        <button class="btn-delete">
+                                            <span class="las la-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
