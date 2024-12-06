@@ -56,13 +56,17 @@ $categories = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="../../../assets/css/risk-register-create.css">
 </head>
 <body>
-    <div class="container my-5">
+    <div class="content">
+        <!-- Header Section -->
         <div class="header-section">
-            <h1 class="title">Add New Risk</h1>
-            <a href="index.php?module=risk_register" class="btn-back">Back to List</a>
+            <h2>Add New Risk</h2>
+            <a href="index.php?module=risk_register" class="btn-back">
+                <span class="las la-arrow-left"></span>
+                Back to List
+            </a>
         </div>
-
-        <form method="POST" action="index.php?module=risk_register&action=store" class="form-risk">
+        <div class="card">
+            <form method="POST" action="index.php?module=risk_register&action=store" class="form-risk">
             <div class="form-group">
                 <label class="form-label">Objective/Tujuan *</label>
                 <textarea name="objective" class="form-control" required></textarea>
@@ -132,7 +136,10 @@ $categories = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
                 </div>
             </div>
 
-            <button type="submit" class="btn-save">Save Risk</button>
+            <button type="submit" class="btn-save">
+            <span class="las la-save"></span>
+            Save Risk
+        </button>
         </form>
     </div>
 </body>
