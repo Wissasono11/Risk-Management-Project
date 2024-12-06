@@ -61,8 +61,8 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 ✅ **Database Design**  
 ✅ **User Authentication**  
 ✅ **Basic Dashboard**  
-🟨 **Risk Assessment Module**  
-🟨 **Reporting System**  
+✅ **Risk Assessment Module**  
+✅ **Reporting System**  
 🟨 **Faculty Integration**  
 🟨 **Testing & Documentation**  
 🟨 **Deployment**  
