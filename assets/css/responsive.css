@@ -33,6 +33,11 @@
   .summary-item {
     display: none;
   }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -66,7 +71,7 @@
 
   .cards {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
     padding: 1rem;
   }
 
@@ -79,7 +84,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-align: center;
   }
 
   .card-single h1 {
@@ -88,7 +92,7 @@
   }
 
   .card-single span {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .card-single .icon {
