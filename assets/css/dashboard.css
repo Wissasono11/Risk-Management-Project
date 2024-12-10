@@ -68,7 +68,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
 }
 
 .sidebar-brand h2 span {
@@ -176,7 +175,7 @@
 }
 
 #nav-toggle:checked ~ .main-content {
-  margin-left: 70px;
+  margin-left: 3rem;
 }
 
 #nav-toggle:checked ~ .main-content header {
@@ -431,9 +430,4 @@ td .status {
   display: inline-block;
   margin-left: 0.5rem;
   color: var(--blue-chill);
-}
-
-.main-content {
-  transition: margin-left 300ms;
-  margin-left: 345px;
 }
