@@ -1,14 +1,15 @@
 @media screen and (max-width: 1400px) {
   header {
     padding: 1rem;
-  }
-
-  h2 {
-    padding-top: 9px;
+    width: calc(100% - 280px);
   }
 
   header h2 {
     font-size: 1rem;
+  }
+
+  h2 {
+    padding-top: 9px;
   }
 
   .risk-summary {
@@ -26,92 +27,106 @@
   .user-wrapper small {
     font-size: 0.75rem;
   }
-}
-
-@media screen and (max-width: 1280px) {
-  .risk-summary,
-  .summary-item {
-    display: none;
-  }
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     padding: 1rem;
   }
+
+  /* masih sus */
+  .chart-card {
+    width: calc(100% - 2px);
+    grid-template-columns: 1fr;
+  }
 }
 
-@media screen and (max-width: 960px) {
-  .risk-summary,
-  .summary-item {
-    display: none;
-  }
-
+@media screen and (max-width: 1200px) {
   .cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     padding: 1rem;
   }
 
   .card-single {
-    padding: 1.2rem;
+    padding: 0.8rem !important;
+    font-size: 0.8rem;
   }
 
   .card-single h1 {
-    font-size: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .card-single div:last-child span {
+    font-size: 1rem;
+  }
+
+  .risk-summary,
+  .summary-item {
+    display: none;
   }
 }
 
 @media screen and (max-width: 768px) {
-  header {
+  .chart-card {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    overflow-x: auto;
+    box-sizing: border-box;
+  }
+
+  .chart-card canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .risk-matrix {
+    overflow-x: auto;
     padding: 1rem;
   }
 
-  header h2 {
-    font-size: 0.9rem;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-
-  .user-wrapper {
-    display: none;
-  }
-
-  .card-single {
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .card-single h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-single span {
-    font-size: 1rem;
-  }
-
-  .card-single .icon {
-    font-size: 1.8rem;
+  .matrix-cell {
+    min-width: 48px;
     padding: 0.5rem;
-  }
-
-  .user-wrapper {
-    display: none;
-  }
-
-  .user-wrapper h4 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 560px) {
+  main {
+    padding: 1rem;
+  }
+
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .card-single {
+    margin-bottom: 0.5rem;
+  }
+
+  .chart-card {
+    overflow-x: auto;
+    padding: 0.8rem;
+  }
+
+  .risk-matrix {
+    min-width: 480px;
+  }
+
+  .status {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .card-header button {
+    width: 100%;
+    text-align: center;
   }
 }
