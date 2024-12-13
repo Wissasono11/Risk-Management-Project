@@ -34,10 +34,27 @@
     padding: 1rem;
   }
 
-  /* masih sus */
   .chart-card {
-    width: calc(100% - 2px);
-    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+
+  .chart-card .card-body {
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .risk-matrix {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .risk-matrix .matrix-cell {
+    min-width: 48px;
+    font-size: 0.9rem;
   }
 }
 
