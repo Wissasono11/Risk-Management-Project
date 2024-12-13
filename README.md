@@ -50,7 +50,7 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 |--------------|-------------------|------------------------------------|
 | **Dipta**    | Full Stack        | Database & API Development & Lead  |
 | **Agung**    | UI/UX             | Frontend Design & Implementation   |
-| **Bayu**     | Frontend          | Logic & Integration                |
+| **Bayu**     | Frontend          | Logic & Integration & Debugger     |
 | **Faris**    | Support           | Documentation                      |
 | **Rafli**    | Support           | Testing                            |
 
