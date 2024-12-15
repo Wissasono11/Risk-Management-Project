@@ -375,15 +375,11 @@ main {
   display: flex;
   align-items: center;
 }
-#sidebar-toggle:checked ~ .sidebar-collapsed .main-content header {
+.sidebar-collapsed .main-content .collapsed {
   left: 70px;
   width: calc(100% - 70px);
 }
 
-#sidebar-toggle:checked ~ .sidebar-collapsed main {
-  margin-left: 0;
-  width: calc(100% - 70px);
-}
 header label#sidebar-toggle {
   display: flex;
   align-items: center;
