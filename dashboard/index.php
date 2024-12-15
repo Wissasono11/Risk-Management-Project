@@ -57,15 +57,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
 </head>
 <body>
     <!-- side bar -->
-    <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
+        <label for="nav-toggle" class="close-btn">
+            <span class="fa fa-close"></span>
+        </label>
         <div class="sidebar-brand">
             <h1><span class="fa fa-ge"></span></h1>
             <h2><span>Management Risk</span></h2>
+
         </div>
         
         <div class="sidebar-menu">
@@ -100,6 +103,7 @@
                             <span>Manage Users</span>
                         </a>
                     </li>
+                    
                 <?php endif; ?>
                     <li>
                         <a href="index.php?module=profile" class="<?= $module == 'profile' ? 'active' : '' ?>">
@@ -120,10 +124,10 @@
     <div class="main-content">
         <header>
             <h2>
-                <label for="nav-toggle">
+                <label for="nav-toggle" id="sidebar-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard
+                <span class="dashboard-text">Dashboard</span>
             </h2>  
 
             <!-- Risk Summary -->
