@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebar = document.querySelector(".sidebar");
 
   closeButton.addEventListener("click", () => {
-    sidebar.classList.add("hide");
+    sidebar.classList.add("collapsed");
   });
 
-  // Optional: Tambahkan event untuk membuka kembali sidebar jika diperlukan
   const openButton = document.querySelector("#sidebar-toggle");
   openButton.addEventListener("click", () => {
-    sidebar.classList.remove("hide");
+    sidebar.classList.add("expanded");
   });
 });
