@@ -9,10 +9,10 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .main-content{
-    width:-webkit-fill-available;
+  .main-content {
+    width: -webkit-fill-available;
   }
-  
+
   header {
     padding: 1rem;
     width: calc(100% - 280px);
@@ -78,10 +78,10 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .main-content{
-    width:-webkit-fill-available;
+  .main-content {
+    width: -webkit-fill-available;
   }
-  
+
   .cards {
     grid-template-columns: repeat(2, 1fr) !important;
     padding: 1rem;
@@ -107,10 +107,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .main-content{
-    width:-webkit-fill-available;
+  .main-content {
+    width: -webkit-fill-available;
   }
-  
+
   .cards {
     grid-template-columns: repeat(1, 1fr) !important;
     gap: 0.5rem;
@@ -130,6 +130,10 @@
     height: auto;
   }
 
+  .charts-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
   .risk-matrix {
     overflow-x: auto;
     padding: 1rem;
@@ -143,10 +147,10 @@
 }
 
 @media screen and (max-width: 680px) {
-  .main-content{
-    width:-webkit-fill-available;
+  .main-content {
+    width: -webkit-fill-available;
   }
-  
+
   header {
     padding: 0.5rem;
     width: 100%;
@@ -195,6 +199,10 @@
     padding: 0.5rem;
   }
 
+  .charts-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
   .risk-matrix {
     min-width: 480px;
   }
@@ -216,10 +224,10 @@
 }
 
 @media screen and (max-width: 480px) {
-  .main-content{
-    width:-webkit-fill-available;
+  .main-content {
+    width: -webkit-fill-available;
   }
-  
+
   header {
     width: 100%;
     z-index: 100;
@@ -234,17 +242,17 @@
     width: 100%;
   }
 
-  .main-content header{
+  .main-content header {
     margin-left: -280px;
     width: 100%;
   }
 
-  .main-content.collapsed header{
+  .main-content.collapsed header {
     margin-left: -280px;
     width: 100%;
   }
 
-  .main-content.collapsed{
+  .main-content.collapsed {
     margin-left: 0;
     width: 100%;
   }
@@ -297,11 +305,14 @@
     display: none;
   }
 
+  .charts-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
   .sidebar .close-btn .fa.fa-close {
     display: flex;
     align-items: center;
     position: absolute;
     font-size: 1rem;
   }
-
 }
