@@ -230,7 +230,7 @@ span.dashboard-text {
 /* main content */
 .main-content {
   position: relative;
-  width: 100%;
+  width: 78%;
   margin-left: 280px;
   transition: all 0.3s ease;
   overflow-x: hidden;
@@ -297,7 +297,7 @@ main {
   margin-top: 2rem;
   padding: 2rem 1.5rem;
   background: #f1f5f9;
-  min-height: calc(100% - 280px);
+  width: 100%;
 }
 
 .cards {
@@ -379,7 +379,7 @@ main {
 }
 
 .main-content.collapsed{
-  margin-left: 50px;
+  margin-left: 70px;
   width: 95%;
 }
 
