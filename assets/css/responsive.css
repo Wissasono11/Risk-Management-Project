@@ -208,7 +208,24 @@
   header h2 span.dashboard-text {
     display: none;
   }
-  main {
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .main-content header{
+    margin-left: -280px;
+    width: 100%;
+  }
+
+  .main-content.collapsed header{
+    margin-left: -280px;
+    width: 100%;
+  }
+
+  .main-content.collapsed{
+    margin-left: 0;
     width: 100%;
   }
 
@@ -266,4 +283,5 @@
     position: absolute;
     font-size: 1rem;
   }
+
 }
