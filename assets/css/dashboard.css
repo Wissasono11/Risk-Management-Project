@@ -23,7 +23,7 @@
 /* header */
 header {
   display: flex;
-  width: calc(100% - 345px);
+  width: 100%;
   background: #fff;
   justify-content: space-between;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -91,9 +91,6 @@ span.dashboard-text {
   transition: all 0.3s ease;
 }
 
-.sidebar .active {
-  left: 0;
-}
 
 .sidebar .close-btn .fa.fa-close {
   right: 0.3rem;
@@ -233,7 +230,7 @@ span.dashboard-text {
 /* main content */
 .main-content {
   position: relative;
-  width: calc(100% - 280px);
+  width: 100%;
   margin-left: 280px;
   transition: all 0.3s ease;
   overflow-x: hidden;
@@ -375,10 +372,23 @@ main {
   display: flex;
   align-items: center;
 }
-.sidebar-collapsed .main-content .collapsed {
-  left: 70px;
-  width: calc(100% - 70px);
+
+.sidebar.collapsed {
+  overflow: hidden;
+  width: 70px;
 }
+
+.main-content.collapsed{
+  margin-left: 50px;
+  width: 95%;
+}
+
+.main-content.collapsed header{
+  width: 95%;
+  margin-left: -208px;
+}
+
+
 
 header label#sidebar-toggle {
   display: flex;
