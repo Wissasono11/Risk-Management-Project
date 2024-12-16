@@ -9,6 +9,10 @@
 }
 
 @media screen and (max-width: 1400px) {
+  .main-content{
+    width:-webkit-fill-available;
+  }
+  
   header {
     padding: 1rem;
     width: calc(100% - 280px);
@@ -74,6 +78,10 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .main-content{
+    width:-webkit-fill-available;
+  }
+  
   .cards {
     grid-template-columns: repeat(2, 1fr) !important;
     padding: 1rem;
@@ -99,6 +107,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .main-content{
+    width:-webkit-fill-available;
+  }
+  
   .cards {
     grid-template-columns: repeat(1, 1fr) !important;
     gap: 0.5rem;
@@ -131,6 +143,10 @@
 }
 
 @media screen and (max-width: 680px) {
+  .main-content{
+    width:-webkit-fill-available;
+  }
+  
   header {
     padding: 0.5rem;
     width: 100%;
@@ -200,6 +216,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .main-content{
+    width:-webkit-fill-available;
+  }
+  
   header {
     width: 100%;
     z-index: 100;
