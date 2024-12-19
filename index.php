@@ -52,9 +52,13 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-    <!-- Particles.js Container -->
+    <!-- UINSUKA Logo -->
+    <div class="corner-logo">
+        <img src="assets/img/logo.png" alt="UINSUKA Logo" />
+    </div>
+    
+    <!-- Particles.js -->
     <div id="particles-js"></div>
-
     <div class="container">
         <div class="header">
             <div class="logo">
@@ -92,8 +96,9 @@ if (isset($_POST['login'])) {
     <!-- Scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
     <script src="assets/js/password.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
