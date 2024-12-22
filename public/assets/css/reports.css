@@ -1,0 +1,316 @@
+/* reports.css */
+:root {
+    --color-low: #22C55E;
+    --color-medium: #EAB308; 
+    --color-high: #EF4444;
+    --color-very-high: #7C3AED;
+  }
+  
+  /* Header & Filter Section */
+  .reports-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+  }
+  
+  .reports-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+  }
+  
+  .header-actions {
+      display: flex;
+      gap: 1rem;
+  }
+  
+  .filter-section {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .filter-form {
+      display: grid;
+      grid-template-columns: 2fr 3fr auto;
+      gap: 1.5rem;
+      align-items: end;
+  }
+  
+  .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+  
+  .form-group label {
+      font-weight: 500;
+      color: var(--color-dark);
+  }
+  
+  .form-control {
+      padding: 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+  }
+  
+  .form-control:focus {
+      border-color: var(--main-color);
+      box-shadow: 0 0 0 3px rgba(12, 149, 155, 0.1);
+  }
+  
+  /* Stats Cards */
+  .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+  }
+  
+  .stat-card:hover {
+      transform: translateY(-5px);
+  }
+  
+  .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+  }
+  
+  .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+  }
+  
+  .stat-title {
+      font-size: 0.9rem;
+      color: var(--text-grey);
+      margin-bottom: 0.5rem;
+  }
+  
+  .stat-value {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--color-dark);
+  }
+  
+  /* Risk Matrix Table */
+  .risk-table-container {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+  }
+  
+  .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+  }
+  
+  .table th {
+      background: #f8fafc;
+      padding: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--text-grey);
+      border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .table td {
+      padding: 1rem;
+      vertical-align: middle;
+      border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table tbody tr:hover {
+      background: #f8fafc;
+  }
+  
+  /* Risk Level Badges */
+  .risk-badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    color: white; /* Default */
+}
+
+.risk-badge.low { background: var(--color-low); }
+.risk-badge.medium { background: var(--color-medium); }
+.risk-badge.high { background: var(--color-high); }
+.risk-badge.very-high { background: var(--color-very-high); }
+
+  
+  /* Progress Bars */
+  .progress {
+      background: #e2e8f0;
+      height: 25px;
+      border-radius: 4px;
+      overflow: hidden;
+  }
+  
+  .progress-bar {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--main-color), var(--atol));
+      transition: width 0.3s ease;
+      position: relative;
+  }
+  
+  .progress-value {
+      position: absolute;
+      right: 0;
+      top: -20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-dark);
+  }
+  
+  /* Action Buttons */
+  .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+  }
+  
+  .btn-primary {
+      background: var(--main-color);
+      color: white;
+  }
+  
+  .btn-secondary {
+      background: #f1f5f9;
+      color: var(--color-dark);
+  }
+  
+  .btn-success {
+      background: var(--color-low);
+      color: white;
+  }
+  
+  .btn-info {
+      background: var(--main-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+      .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+  
+  @media (max-width: 768px) {
+      .filter-form {
+          grid-template-columns: 1fr;
+      }
+  
+      .reports-header {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: flex-start;
+      }
+  
+      .risk-table-container {
+        border-radius: 1rem;
+        padding: 1rem; 
+        overflow-x: auto;
+        overflow-y: hidden; 
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .table-responsive {
+        margin: 0 -1rem;
+    }
+    
+    .table th, .table td {
+        font-size: 0.75rem; /* Kurangi ukuran font pada tabel */
+        padding: 0.5rem; /* Kurangi padding pada sel tabel */
+    }
+
+    .filter-section {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Hindari elemen meluap */
+    }
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow: hidden;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: var(--color-dark);
+        white-space: nowrap; /* Hindari teks label meluap */
+        text-overflow: ellipsis; /* Tambahkan ellipsis jika teks terlalu panjang */
+        overflow: hidden;
+    }
+    
+    .form-control {
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        width: 100%; /* Pastikan input mengambil lebar penuh kolom */
+        box-sizing: border-box; /* Pastikan padding dihitung dalam width */
+    }
+    
+    
+  }
+  
+  @media (max-width: 480px) {
+      .stats-grid {
+          grid-template-columns: 1fr;
+      }
+  
+      .header-actions {
+          width: 100%;
+          flex-direction: column;
+      }
+  
+      .btn {
+          width: 100%;
+          justify-content: center;
+      }
+  }
