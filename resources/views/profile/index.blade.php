@@ -10,13 +10,11 @@ ob_start();
     <div class="profile-section">
         <div class="profile-card">
             <div class="profile-picture">
-                <img src="<?= $_SESSION['base_uri'] ?>/uploads/profiles/<?= $profileUser['profile_picture'] ?? 'default.jpg' ?>" 
-                     alt="Profile Picture"
-                     class="profile-picture">
+                <img src="<?= $_SESSION['base_uri'] ?>/assets/img/picture.jpg" alt="Profile Picture">
                 <div class="edit-avatar" onclick="document.getElementById('profilePicture').click()">
-                    <i class="fas fa-camera"></i>
-                    <input type="file" id="profilePicture" hidden accept="image/*" 
-                           onchange="handleProfilePictureChange(this)">
+                <i class="fas fa-camera"></i>
+                <input type="file" id="profilePicture" hidden accept="image/*" 
+                       onchange="handleProfilePictureChange(this)">
                 </div>
             </div>
             <h4 class="profile-name"><?= htmlspecialchars($profileUser['email']) ?></h4>

@@ -1,350 +1,350 @@
 /* profile.css */
 :root {
-  --profile-bg: #f8fafc;
-  --card-bg: #ffffff;
-  --border-color: #e2e8f0;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
+    --profile-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
 }
 
 .profile-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 /* Profile Grid Layout */
 .profile-section {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 /* Profile Card */
 .profile-card {
-  background: var(--card-bg);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  position: relative;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .profile-picture {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 0.4rem;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
 }
 
 .profile-picture img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid var(--main-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--main-color);
 }
 
 .profile-picture .edit-avatar {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: var(--main-color);
-  color: white;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--main-color);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .profile-picture .edit-avatar:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .profile-name {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
 }
 
 .profile-role {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
 .profile-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .stat-item {
-  text-align: center;
+    text-align: center;
 }
 
 .stat-value {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--main-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--main-color);
 }
 
 .stat-label {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
 /* Profile Details */
 .profile-details {
-  display: grid;
-  gap: 1.5rem;
+    display: grid;
+    gap: 1.5rem;
 }
 
 .info-card {
-  background: var(--card-bg);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .edit-button {
-  background: none;
-  border: none;
-  color: var(--main-color);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+    background: none;
+    border: none;
+    color: var(--main-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .info-item {
-  padding: 1rem;
-  background: var(--profile-bg);
-  border-radius: 0.5rem;
+    padding: 1rem;
+    background: var(--profile-bg);
+    border-radius: 0.5rem;
 }
 
 .info-label {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
 }
 
 .info-value {
-  font-size: 1rem;
-  color: var(--text-primary);
-  font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .activity-log {
-  margin-top: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .activity-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .activity-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--profile-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--main-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--profile-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
 }
 
 .file-input {
-  display: none;
+    display: none;
 }
 
 .file-input-label {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--main-color);
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--main-color);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .file-input-label:hover {
-  background: var(--atol);
+    background: var(--atol);
 }
 
 .file-preview {
-  margin-top: 1rem;
-  text-align: center;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .file-preview img {
-  max-width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .form-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 /* Profile Upload Section */
 .profile-upload {
-  text-align: center;
-  margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .current-photo {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 1rem;
-  position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    position: relative;
 }
 
 .current-photo img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--main-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--main-color);
 }
 
 .upload-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .upload-hint {
-  font-size: 0.85rem;
-  color: var(--text-grey);
+    font-size: 0.85rem;
+    color: var(--text-grey);
 }
 
 /* Form Sections */
 .form-section {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 8px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--color-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-dark);
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 0.95rem;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
 }
 
 .form-group input:focus {
-  outline: none;
-  border-color: var(--main-color);
-  box-shadow: 0 0 0 3px rgba(12, 149, 155, 0.1);
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 3px rgba(12, 149, 155, 0.1);
 }
 
 .form-group input[readonly] {
-  background: #f1f5f9;
-  cursor: not-allowed;
+    background: #f1f5f9;
+    cursor: not-allowed;
 }
 
 /* Form Actions */
 .form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .profile-section {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-card {
-    max-width: 400px;
-    margin: 0 auto;
-  }
+    .profile-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 768px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-container {
+        padding: 1rem;
+    }
 
-  .profile-container {
-    padding: 1rem;
-  }
+    .form-container {
+        padding: 1rem;
+    }
 
-  .form-container {
-    padding: 1rem;
-  }
-
-  .form-section {
-    padding: 1rem;
-  }
+    .form-section {
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .profile-picture {
-    width: 120px;
-    height: 120px;
-  }
-
-  .stat-value {
-    font-size: 1.25rem;
-  }
-
-  .activity-item {
-    flex-direction: column;
-    text-align: center;
-  }
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        text-align: center;
+    }
 }

@@ -112,11 +112,7 @@
 
     <!-- User Profile -->            
     <div class="user-wrapper">
-        <img src="<?= $_SESSION['base_uri'] ?>/uploads/profiles/<?= $_SESSION['user_profile_picture'] ?? 'default.jpg' ?>" 
-             width="30px" 
-             height="30px" 
-             alt="Profile picture"
-             class="profile-picture">
+        <img src="<?= $_SESSION['base_uri'] ?>/assets/img/picture.jpg" width="30px" height="30px" alt="Profile picture">
         <div>
             <h4><?= htmlspecialchars($_SESSION['user_email']) ?></h4>
             <small><?= $_SESSION['user_role'] === 'admin' ? 'Administrator' : ($fakultasName ?? 'Faculty User') ?></small>

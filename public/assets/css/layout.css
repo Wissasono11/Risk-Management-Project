@@ -25,6 +25,8 @@ body {
   background: #f1f5f9;
 }
 
+
+
 /* ----- Sidebar ----- */
 .sidebar {
   width: 280px;
@@ -44,6 +46,7 @@ body {
   gap: 1rem;
   color: #fff;
 }
+
 
 .sidebar-brand h2 {
   display: flex;
@@ -81,7 +84,7 @@ body {
 }
 
 .sidebar-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   border-radius: 0 20px 20px 0;
 }
 .sidebar-menu a.active {
@@ -128,7 +131,7 @@ header {
   justify-content: space-between;
   padding: 0 1.5rem;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -147,7 +150,7 @@ header {
 
 header h2 {
   font-size: 1.2rem;
-  margin-bottom: 0;
+  margin-bottom: 0; 
   display: flex;
   align-items: center;
 }
@@ -161,38 +164,33 @@ span.dashboard-text {
 .user-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.7rem;
+  gap: 1rem;
+  padding: 0.5rem;
   border-radius: 8px;
   transition: none;
 }
 
+.user-wrapper div {
+    line-height: 1.15;
+}
 .user-wrapper img {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--main-color);
-  margin-top: 2px;
 }
-
-.user-wrapper div {
-  line-height: 1.2;
-  margin-top: 2px;
-}
-
 .user-wrapper h4 {
   font-weight: 600;
   color: var(--color-dark);
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
-
 .user-wrapper small {
   color: var(--text-grey);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 /* ----- Main content ----- */
@@ -229,7 +227,7 @@ header:not(.collapsed) {
   background: #fff;
   border-radius: 5px;
   margin-bottom: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .card-header,
 .card-body {
@@ -267,6 +265,7 @@ header:not(.collapsed) {
   border: 1px solid #e2e8f0;
 }
 
+
 .summary-item {
   display: flex;
   align-items: center;
@@ -302,7 +301,7 @@ header:not(.collapsed) {
   transition: 0.3s;
 }
 .card-single:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
 /* Tabel responsif */
@@ -330,21 +329,11 @@ header:not(.collapsed) {
   font-size: 0.75rem;
   text-transform: capitalize;
 }
-.status.r {
-  background: var(--glacier);
-}
-.status.s {
-  background: var(--blue-chill);
-}
-.status.t {
-  background: var(--tiber);
-}
-.status.st {
-  background: var(--black-pearl);
-}
-.status.sr {
-  background: #ccc;
-}
+.status.r { background: var(--glacier); }
+.status.s { background: var(--blue-chill); }
+.status.t { background: var(--tiber); }
+.status.st { background: var(--black-pearl); }
+.status.sr { background: #ccc; }
 
 /* Action buttons di table */
 .action-buttons button {
@@ -359,3 +348,4 @@ header:not(.collapsed) {
 .action-buttons button:hover {
   background: var(--atol);
 }
+
