@@ -135,12 +135,12 @@ require_once __DIR__ . '/../../../app/Helpers/calculateTreatmentStatus.php';
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
                                     <!-- Tombol Delete -->
-                                    <button type="button" 
-                                            class="btn btn-danger btn-sm" 
-                                            onclick="if(confirm('Are you sure you want to delete this treatment?')) 
-                                            window.location.href='<?= $_SESSION['base_uri'] ?>/treatments/delete?id=<?= htmlspecialchars($treatment['id']) ?>'">
-                                        <i class="fas fa-trash"></i> Delete
-                                    </button>
+                                    <form action="<?= $_SESSION['base_uri'] ?>/treatments/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this treatment?');" style="display:inline;">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($treatment['id']) ?>">
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
