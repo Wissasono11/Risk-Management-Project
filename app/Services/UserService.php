@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Interfaces\UserInterface;
@@ -55,14 +56,15 @@ class UserService implements UserInterface
         return $result->fetch_assoc();
     }
 
-    
+
 
     public function createUser(array $data)
     {
         $sql = "INSERT INTO users (email, password, role, fakultas_id)
                 VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssi",
+        $stmt->bind_param(
+            "sssi",
             $data['email'],
             $data['password'],
             $data['role'],
@@ -79,7 +81,8 @@ class UserService implements UserInterface
             $sql = "UPDATE users SET email=?, password=?, role=?, fakultas_id=? 
                     WHERE id=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("sssii",
+            $stmt->bind_param(
+                "sssii",
                 $data['email'],
                 $data['password'],
                 $data['role'],
@@ -91,7 +94,8 @@ class UserService implements UserInterface
             $sql = "UPDATE users SET email=?, role=?, fakultas_id=?
                     WHERE id=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bind_param("ssii",
+            $stmt->bind_param(
+                "ssii",
                 $data['email'],
                 $data['role'],
                 $data['fakultas_id'],
@@ -109,10 +113,52 @@ class UserService implements UserInterface
         return $stmt->execute();
     }
 
-    public function updateLastLogin($userId) {
+    public function updateLastLogin($userId)
+    {
         $sql = "UPDATE users SET last_login = NOW() WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $userId);
         return $stmt->execute();
+    }
+
+    public function updateProfile($userId, array $data)
+    {
+        try {
+            $setFields = [];
+            $values = [];
+            $types = '';
+
+            if (isset($data['email'])) {
+                $setFields[] = 'email = ?';
+                $values[] = $data['email'];
+                $types .= 's';
+            }
+
+            if (isset($data['profile_picture'])) {
+                $setFields[] = 'profile_picture = ?';
+                $values[] = $data['profile_picture'];
+                $types .= 's';
+            }
+
+            if (empty($setFields)) {
+                return false;
+            }
+
+            $values[] = $userId;
+            $types .= 'i';
+
+            $sql = "UPDATE users SET " . implode(', ', $setFields) . " WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+
+            if (!$stmt) {
+                throw new \Exception($this->conn->error);
+            }
+
+            $stmt->bind_param($types, ...$values);
+            return $stmt->execute();
+        } catch (\Exception $e) {
+            error_log("Error updating profile: " . $e->getMessage());
+            return false;
+        }
     }
 }
