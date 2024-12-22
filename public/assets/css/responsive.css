@@ -1,0 +1,151 @@
+
+
+@media screen and (max-width: 1350px) {
+  /* Hide risk summary and adjust spacing */
+  .risk-summary {
+    display: none;
+  }
+
+  .header-left {
+    flex: 1;
+  }
+
+  .user-wrapper {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Mobile layout */
+  header {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  header.collapsed {
+    left: 0;
+    width: 100%;
+  }
+
+  header:not(.collapsed) {
+    left:0;
+  }
+  
+  .header-left {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    left: -100%;
+    width: 280px;
+    z-index: 1001;
+  }
+
+  .sidebar.collapsed {
+    left: -280px;
+  }
+
+  .sidebar:not(.collapsed) {
+    left: 0;
+  }
+
+  /* Dark overlay */
+  .sidebar:not(.collapsed) ~ .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+  }
+
+    .main-content.collapsed {
+        margin-left: 0;
+        width: 100%;
+    }
+
+  .page-title {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust card layouts */
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card-single {
+    padding: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Small mobile devices */
+  header {
+    padding: 0 0.8rem;
+  }
+
+  .page-title {
+    display: none;
+  }
+
+  .user-wrapper h4,
+  .user-wrapper small {
+    display: none;
+  }
+
+  .user-wrapper img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Full width sidebar on very small screens */
+  .sidebar:not(.collapsed) {
+    width: 100%;
+  }
+
+  /* Adjust card layout for small screens */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Table adjustments */
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Smooth transitions */
+.sidebar,
+.main-content,
+header,
+.header-left {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add overlay for mobile menu */
+.overlay {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sidebar:not(.collapsed) ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

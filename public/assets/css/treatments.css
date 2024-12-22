@@ -1,0 +1,334 @@
+:root {
+    --status-pending: #FFC107;
+    --status-ongoing: #3B82F6;
+    --status-completed: #10B981;
+    --status-overdue: #EF4444;
+  }
+  
+  .treatments-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .treatments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+
+  /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Toast Styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    z-index: 1060;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-success {
+    background: var(--status-completed);
+}
+
+.toast-error {
+    background: var(--status-overdue);
+}
+  
+  .treatment-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    color: var(--text-grey);
+    font-size: 0.9rem;
+  }
+  
+  /* Treatment Table */
+  .treatment-table {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .table th {
+    background: #f8fafc;
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-grey);
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table tbody tr:hover {
+    background: #f8fafc;
+  }
+  
+  /* Treatment Status */
+  .status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .status-pending {
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--status-pending);
+  }
+  
+  .status-ongoing {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--status-ongoing);
+  }
+  
+  .status-completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--status-completed);
+  }
+  
+  .status-overdue {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--status-overdue);
+  }
+  
+  /* Timeline Section */
+  .timeline {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .quarter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .quarter-label {
+    font-size: 0.8rem;
+    color: var(--text-grey);
+  }
+  
+  .quarter-box {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .quarter-box.planned {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--status-ongoing);
+  }
+  
+  .quarter-box.completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--status-completed);
+  }
+  
+  /* Form Styling */
+  .form-section {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-dark);
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 3px rgba(12, 149, 155, 0.1);
+  }
+  
+  /* Action Buttons */
+  .btn-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary {
+    background: var(--main-color);
+    color: white;
+  }
+  
+  .btn-secondary {
+    background: #f1f5f9;
+    color: var(--color-dark);
+  }
+  
+  .btn-danger {
+    background: var(--status-overdue);
+    color: white;
+  }
+  
+  /* File Upload */
+  .file-upload {
+    border: 2px dashed #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .file-upload:hover {
+    border-color: var(--main-color);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .treatment-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .treatments-header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .treatment-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .table-responsive {
+      margin: 0 -1.5rem;
+    }
+  
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }

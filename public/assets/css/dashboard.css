@@ -1,0 +1,213 @@
+:root {
+    --main-color: #0c959b;
+    --color-dark: #1d2231;
+    --text-grey: #8390a2;
+    --white-color: #fff;
+    --black-pearl: #031716;
+    --tiber: #043031;
+    --atol: #0b7176;
+    --blue-chill: #0c959b;
+    --glacier: #6ba3be;
+    --blue-dianne: #274d62;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+    --card-border-radius: 0.5rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+}
+
+/* Cards Section */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.card-single {
+    display: flex;
+    justify-content: space-between;
+    background: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.card-single:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.card-single div:first-child span {
+    color: var(--text-grey);
+}
+
+.card-single div:last-child span {
+    font-size: 3rem;
+    color: var(--blue-chill);
+    padding: 0.5rem;
+}
+
+.card-single h1 {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.chart-card .card-body {
+    overflow-x: auto;
+}
+
+.chart-card {
+    background: var(--white-color);
+    border-radius: var(--card-border-radius);
+    padding: 1.5rem;
+    transition: all 300ms ease;
+}
+
+.chart-card:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.chart-card h3 {
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+/* Risk Matrix */
+.risk-matrix {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f1f5f9;
+    min-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-1);
+}
+
+.matrix-cell {
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: var(--border-radius-1);
+    font-weight: 500;
+    transition: all 200ms ease;
+}
+
+.matrix-cell.header {
+    background: var(--color-dark);
+    color: var(--white-color);
+}
+
+.matrix-cell:not(.header):hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.matrix-cell.low { 
+    background: var(--glacier); 
+    color: var(--white-color);
+}
+
+.matrix-cell.medium { 
+    background: var(--atol); 
+    color: var(--white-color);
+}
+
+.matrix-cell.high { 
+    background: var(--tiber); 
+    color: var(--white-color);
+}
+
+.matrix-cell.extreme { 
+    background: var(--black-pearl); 
+    color: var(--white-color);
+}
+
+/* Recent Activities Table */
+.recent-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 100% auto;
+    transition: all 300ms ease;
+}
+
+.recent-grid:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.card {
+    background: var(--white-color);
+    border-radius: var(--card-border-radius);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card-header button {
+    background: var(--blue-chill);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--blue-chill);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.card-header button:hover {
+    background: var(--atol);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead td {
+    font-weight: 700;
+}
+
+td {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+
+.status.sr { background: var(--glacier); color: var(--white-color); }
+.status.r { background: var(--atol); color: var(--white-color); }
+.status.s { background: var(--blue-chill); color: var(--white-color); }
+.status.t { background: var(--tiber); color: var(--white-color); }
+.status.st { background: var(--black-pearl); color: var(--white-color); }
