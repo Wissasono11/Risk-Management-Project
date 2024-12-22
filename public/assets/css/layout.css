@@ -1,0 +1,351 @@
+:root {
+  --main-color: #0c959b;
+  --color-dark: #1d2231;
+  --text-grey: #8390a2;
+  --black-pearl: #031716;
+  --tiber: #043031;
+  --atol: #0b7176;
+  --blue-chill: #0c959b;
+  --glacier: #6ba3be;
+  --blue-dianne: #274d62;
+}
+
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background: #f1f5f9;
+}
+
+
+
+/* ----- Sidebar ----- */
+.sidebar {
+  width: 280px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--main-color);
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-brand {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+
+
+.sidebar-brand h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+}
+.sidebar-brand h2 span.fa {
+  font-size: 1.3rem;
+}
+
+.sidebar-menu {
+  margin-top: 2rem;
+}
+
+.sidebar-menu li {
+  margin-bottom: 1.2rem;
+  padding-left: 1.5rem;
+}
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.sidebar-menu a span:first-child {
+  font-size: 1.3rem;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-menu a:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius: 0 20px 20px 0;
+}
+.sidebar-menu a.active {
+  background: #fff;
+  color: var(--blue-chill);
+  border-radius: 0 20px 20px 0;
+}
+
+/* Tombol close di sidebar */
+.sidebar .close-btn .fa.fa-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
+  padding: 4px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Sidebar collapsed */
+.sidebar.collapsed {
+  width: 70px;
+  overflow: hidden;
+}
+.sidebar.collapsed .sidebar-brand h2,
+.sidebar.collapsed .sidebar-menu a span:last-child {
+  display: none;
+}
+.sidebar.collapsed .sidebar-menu a {
+  justify-content: center;
+}
+
+/* ----- Header (top bar) ----- */
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60px;
+  width: calc(100% - 280px);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar-toggle {
+  font-size: 1.5rem;
+  color: var(--black-pearl);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+#sidebar-toggle:hover {
+  background: #f1f5f9;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0; 
+  display: flex;
+  align-items: center;
+}
+
+span.dashboard-text {
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+/* User info di header */
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: none;
+}
+
+.user-wrapper div {
+    line-height: 1.15;
+}
+.user-wrapper img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--main-color);
+}
+.user-wrapper h4 {
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 0;
+  font-size: 0.95rem;
+}
+.user-wrapper small {
+  color: var(--text-grey);
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 3px;
+}
+
+/* ----- Main content ----- */
+.main-content {
+  margin-left: 280px;
+  margin-top: 60px; /* agar tidak ketutupan header */
+  padding: 2rem 1.5rem;
+  background: #f1f5f9;
+  min-height: 100vh; /* agar membentang penuh */
+  transition: all 0.3s ease;
+}
+
+.main-content.collapsed {
+  margin-left: 70px;
+}
+header.collapsed {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+header:not(.collapsed) {
+  left: 280px;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-dark);
+}
+
+/* Contoh styling card/kotak */
+.card {
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.card-header,
+.card-body {
+  padding: 1rem;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header button {
+  background: var(--blue-chill);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card-header button:hover {
+  background: var(--atol);
+}
+
+/* Risk summary di header (opsional) */
+.risk-summary {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #f8fafc;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-item span:last-child {
+  font-size: 0.875rem;
+  color: var(--color-dark);
+}
+
+.summary-item .las {
+  font-size: 1.25rem;
+  color: var(--main-color);
+}
+
+.summary-item.warning .las {
+  color: #dc2626;
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+  margin-top: 1rem;
+}
+.card-single {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  transition: 0.3s;
+}
+.card-single:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Tabel responsif */
+.table-responsive {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+.table th,
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 0.9rem;
+}
+
+/* Status badge contoh */
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+.status.r { background: var(--glacier); }
+.status.s { background: var(--blue-chill); }
+.status.t { background: var(--tiber); }
+.status.st { background: var(--black-pearl); }
+.status.sr { background: #ccc; }
+
+/* Action buttons di table */
+.action-buttons button {
+  background: var(--blue-chill);
+  border: none;
+  color: #fff;
+  margin-right: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.action-buttons button:hover {
+  background: var(--atol);
+}
+
