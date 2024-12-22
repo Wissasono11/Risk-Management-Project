@@ -114,38 +114,59 @@ class RiskForm {
         this.matrixPreview.innerHTML = this.generateMatrixHtml(likelihood, impact);
     }
 
-    calculateRiskLevel(score) {
-        if (score >= 15) {
+    calculateRiskLevel(likelihood, impact) {
+        const score = likelihood * impact;
+
+        // Kondisi Khusus: Impact=5 dan Likelihood=1 atau Impact=1 dan Likelihood=5
+        if (
+            (impact === 5 && likelihood === 1) ||
+            (impact === 1 && likelihood === 5)
+        ) {
             return {
                 level: 'High',
-                color: '#ff0000', // Merah
-                background: '#ffebee'
-            };
-        }
-        if (score >= 8) { 
-            return {
-                level: 'Medium',
-                color: '#ffa000', // Oranye/Kuning
+                color: '#ea580c', // Oranye/Kuning
                 background: '#fff3e0'
             };
         }
+
+        // Extreme: Score >=16
+        if (score >= 16) {
+            return {
+                level: 'Very High',
+                color: '#dc2626', // Merah
+                background: '#ffebee'
+            };
+        }
+
+        // High: Score >=10
+        if (score >= 10) { 
+            return {
+                level: 'High',
+                color: '#ea580c', // Oranye/Kuning
+                background: '#fff3e0'
+            };
+        }
+
+        // Medium: Score >=5
         if (score >= 5) { 
             return {
-                level: 'Minor',
-                color: '#7cb342', // Hijau Muda
+                level: 'Medium',
+                color: '#ca8a04', // Hijau Muda
                 background: '#f1f8e9'
             };
         }
+
+        // Low: Score <5
         return {
             level: 'Low',
-            color: '#2e7d32', // Hijau Tua
+            color: '#16a34a', // Hijau Tua
             background: '#e8f5e9'
         };
     }
 
     generateMatrixHtml(selectedL, selectedI) {
+        const { level, color } = this.calculateRiskLevel(selectedL, selectedI);
         const score = selectedL * selectedI;
-        const { level, color } = this.calculateRiskLevel(score);
 
         return `
             <div class="matrix-result">

@@ -1,3 +1,5 @@
+// assets/js/dashboard-chart.js
+
 function getChartOptions() {
     return {
         responsive: true,
@@ -81,18 +83,18 @@ function initializeCharts(riskDistribution) {
             datasets: [{
                 label: 'Number of Risks',
                 data: [
-                    riskDistribution.sr_count || 0,
-                    riskDistribution.r_count || 0,
-                    riskDistribution.s_count || 0,
-                    riskDistribution.t_count || 0,
-                    riskDistribution.st_count || 0
+                    riskDistribution.sr_count || 0,  // Very Low
+                    riskDistribution.r_count || 0,   // Low
+                    riskDistribution.s_count || 0,   // Medium
+                    riskDistribution.t_count || 0,   // High
+                    riskDistribution.st_count || 0   // Very High
                 ],
                 backgroundColor: [
-                    'var(--glacier)',    // Very Low
-                    'var(--blue-chill)', // Low
-                    'var(--atol)',       // Medium
-                    'var(--tiber)',      // High
-                    'var(--black-pearl)' // Very High
+                    'var(--status-very-low)',    // Very Low
+                    'var(--status-low)',         // Low
+                    'var(--status-medium)',      // Medium
+                    'var(--status-high)',        // High
+                    'var(--status-very-high)'    // Very High
                 ],
                 borderWidth: 0,
                 borderRadius: window.innerWidth < 768 ? 3 : 5,

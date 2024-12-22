@@ -61,56 +61,121 @@ class RiskManager {
         const matrix = document.querySelector('.risk-matrix');
         if (!matrix) return;
 
-        console.log('Initializing Risk Matrix with data:', window.matrixData); // Debugging
+        // Bersihkan matrix yang ada
+        matrix.innerHTML = '';
 
-        // Create matrix header
-        const header = document.createElement('div');
-        header.className = 'matrix-header';
-        header.innerHTML = `
-            <div class="matrix-label">Likelihood</div>
-            <div class="matrix-impacts">
-                <div>Very Low</div>
-                <div>Low</div>
-                <div>Medium</div>
-                <div>High</div>
-                <div>Very High</div>
-            </div>
+        // Tambahkan header utama (Impact & Likelihood)
+        const mainHeader = document.createElement('div');
+        mainHeader.className = 'matrix-cell header main-header';
+        mainHeader.innerHTML = `
+            <div class="impact-label">Impact ↑</div>
+            <div class="likelihood-label">Likelihood →</div>
         `;
-        matrix.appendChild(header);
+        matrix.appendChild(mainHeader);
 
-        // Create matrix body
-        const body = document.createElement('div');
-        body.className = 'matrix-body';
+        // Headers untuk Impact (1-5)
+        for (let i = 1; i <= 5; i++) {
+            const header = document.createElement('div');
+            header.className = 'matrix-cell header';
+            header.textContent = i;
+            matrix.appendChild(header);
+        }
 
+        // Define risk scores dan warna
+        const cells = {
+            5: [
+                { score: 5, level: 'high', text: 'HIGH-5' },
+                { score: 10, level: 'high', text: 'HIGH-10' },
+                { score: 15, level: 'high', text: 'HIGH-15' },
+                { score: 20, level: 'very-high', text: 'VERY-HIGH-20' },
+                { score: 25, level: 'very-high', text: 'VERY-HIGH-25' }
+            ],
+            4: [
+                { score: 4, level: 'low', text: 'LOW-4' },
+                { score: 8, level: 'medium', text: 'MEDIUM-8' },
+                { score: 12, level: 'high', text: 'HIGH-12' },
+                { score: 16, level: 'very-high', text: 'VERY HIGH-16' },
+                { score: 20, level: 'very-high', text: 'VERY HIGH-20' }
+            ],
+            3: [
+                { score: 3, level: 'low', text: 'LOW-3' },
+                { score: 6, level: 'medium', text: 'MEDIUM-6' },
+                { score: 9, level: 'medium', text: 'MEDIUM-9' },
+                { score: 12, level: 'high', text: 'HIGH-12' },
+                { score: 15, level: 'high', text: 'HIGH-15' }
+            ],
+            2: [
+                { score: 2, level: 'low', text: 'LOW-2' },
+                { score: 4, level: 'low', text: 'LOW-4' },
+                { score: 6, level: 'medium', text: 'MEDIUM-6' },
+                { score: 8, level: 'medium', text: 'MEDIUM-8' },
+                { score: 10, level: 'high', text: 'HIGH-10' }
+            ],
+            1: [
+                { score: 1, level: 'low', text: 'LOW-1' },
+                { score: 2, level: 'low', text: 'LOW-2' },
+                { score: 3, level: 'low', text: 'LOW-3' },
+                { score: 4, level: 'low', text: 'LOW-4' },
+                { score: 5, level: 'high', text: 'HIGH-5' }
+            ]
+        };
+
+        // Buat rows matrix
         for (let i = 5; i >= 1; i--) {
-            const row = document.createElement('div');
-            row.className = 'matrix-row';
-            row.innerHTML = `<div class="matrix-likelihood">${i}</div>`;
+            // Header likelihood
+            const rowHeader = document.createElement('div');
+            rowHeader.className = 'matrix-cell header';
+            rowHeader.textContent = i;
+            matrix.appendChild(rowHeader);
 
-            for (let j = 1; j <= 5; j++) {
+            // Cells untuk setiap baris
+            for (let j = 0; j < 5; j++) {
                 const cell = document.createElement('div');
                 cell.className = 'matrix-cell';
-                cell.dataset.likelihood = i;
-                cell.dataset.impact = j;
-
-                const level = this.calculateLevel(i, j);
-                cell.classList.add(`level-${level}`);
-
-                const count = window.matrixData?.[i]?.[j]?.length || 0;
-                cell.textContent = count;
+                
+                const cellData = cells[i][j];
+                cell.classList.add(`level-${cellData.level}`);
+                
+                const count = window.matrixData?.[i]?.[j + 1]?.length || 0;
+                
+                cell.innerHTML = `
+                    <div class="cell-content">
+                        <div class="score">${cellData.text}</div>
+                        ${count > 0 ? `<div class="count">(${count})</div>` : ''}
+                    </div>
+                `;
 
                 if (count > 0) {
                     cell.style.cursor = 'pointer';
-                    cell.addEventListener('click', () => this.showMatrixDetails(i, j));
+                    cell.addEventListener('click', () => this.showMatrixDetails(i, j + 1));
                 }
 
-                row.appendChild(cell);
-            }
-            body.appendChild(row);
-        }
+                // Tambahkan garis toleransi
+                if ((i === 3 && j === 3) || (i === 4 && j === 2) || (i === 5 && j === 1)) {
+                    cell.classList.add('tolerance-line');
+                }
 
-        matrix.appendChild(body);
+                matrix.appendChild(cell);
+            }
+        }
+        
+        const footerLabels = ['Rare', 'Unlikely', 'Moderate', 'Likely', 'Almost Certain'];
+        
+        // Header kosong untuk alignment
+        const emptyHeader = document.createElement('div');
+        emptyHeader.className = 'matrix-cell header footer-header invisible';
+        matrix.appendChild(emptyHeader);
+
+        // Labels
+        footerLabels.forEach(label => {
+            const labelCell = document.createElement('div');
+            labelCell.className = 'matrix-cell header footer-label';
+            labelCell.textContent = label;
+            matrix.appendChild(labelCell);
+        });
     }
+
+
 
     calculateLevel(likelihood, impact) {
         const score = likelihood * impact;

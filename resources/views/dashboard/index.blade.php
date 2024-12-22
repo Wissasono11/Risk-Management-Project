@@ -1,7 +1,5 @@
 <?php
 // resources/views/dashboard/index.blade.php
-// Kita asumsikan variable $stats, $risk_distribution, $recent_activities, dsb.
-// disiapkan di DashboardController@index()
 
 // Start output buffering:
 ob_start();
@@ -12,8 +10,9 @@ ob_start();
 <script src="<?= $_SESSION['base_uri'] ?>/assets/js/dashboard-chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi chart
-    initializeCharts(<?= json_encode($risk_distribution ?? []) ?>);
+    const riskData = <?= json_encode($risk_distribution ?? []) ?>;
+    console.log('Risk Distribution Data:', riskData); // Debugging
+    initializeCharts(riskData);
 });
 </script>
 
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="card-single">
         <div>
             <h1><?= $stats['total_fakultas'] ?? 0 ?></h1>
-            <span>Departments</span>
+            <span>Faculty</span>
         </div>
         <div>
             <span class="las la-building"></span>
@@ -51,8 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div>
             <h1>
                 <?php 
-                // array_sum(array_values($risk_distribution)) 
-                // boleh dicek total
                 $total = is_array($risk_distribution ?? null)
                          ? array_sum($risk_distribution)
                          : 0;
@@ -81,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
     
-    <!-- Likelihood vs Impact Matrix -->
+    <!-- Risk Matrix -->
     <div class="chart-card">
         <div class="card">
             <div class="card-header">
@@ -89,47 +86,93 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="card-body">
                 <div class="risk-matrix">
-                    <div class="matrix-cell header">Impact →</div>
-                    <div class="matrix-cell header">1</div>
-                    <div class="matrix-cell header">2</div>
-                    <div class="matrix-cell header">3</div>
-                    <div class="matrix-cell header">4</div>
+                    <!-- Headers -->
+                    <div class="matrix-cell header main-header">
+                    <div class="impact-label">Impact ↑</div>
+                    <div class="likelihood-label">Likelihood →</div>
+                    </div>
+                    <div class="matrix-cell header">Very Low</div>
+                    <div class="matrix-cell header">Low</div>
+                    <div class="matrix-cell header">Medium</div>
+                    <div class="matrix-cell header">High</div>
+                    <div class="matrix-cell header">Very High</div>
+                    
+                    <!-- Row 5 -->
                     <div class="matrix-cell header">5</div>
-                    
-                    <div class="matrix-cell header">5 ↑</div>
-                    <div class="matrix-cell medium">5</div>
-                    <div class="matrix-cell high">10</div>
-                    <div class="matrix-cell high">15</div>
-                    <div class="matrix-cell extreme">20</div>
-                    <div class="matrix-cell extreme">25</div>
-                    
+                    <?php
+                    $cells5 = [
+                        ['level' => 3, 'text' => '5'],
+                        ['level' => 3, 'text' => '10'],
+                        ['level' => 3, 'text' => '15'],
+                        ['level' => 4, 'text' => '20'],
+                        ['level' => 4, 'text' => '25']
+                    ];
+                    foreach($cells5 as $cell): ?>
+                        <div class="matrix-cell level-<?= $cell['level'] ?>"><?= $cell['text'] ?></div>
+                    <?php endforeach; ?>
+
+                    <!-- Row 4 -->
                     <div class="matrix-cell header">4</div>
-                    <div class="matrix-cell low">4</div>
-                    <div class="matrix-cell medium">8</div>
-                    <div class="matrix-cell high">12</div>
-                    <div class="matrix-cell high">16</div>
-                    <div class="matrix-cell extreme">20</div>
-                    
+                    <?php
+                    $cells4 = [
+                        ['level' => 1, 'text' => '4'],
+                        ['level' => 2, 'text' => '8'],
+                        ['level' => 3, 'text' => '12'],
+                        ['level' => 4, 'text' => '16'],
+                        ['level' => 4, 'text' => '20']
+                    ];
+                    foreach($cells4 as $cell): ?>
+                        <div class="matrix-cell level-<?= $cell['level'] ?>"><?= $cell['text'] ?></div>
+                    <?php endforeach; ?>
+
+                    <!-- Row 3 -->
                     <div class="matrix-cell header">3</div>
-                    <div class="matrix-cell low">3</div>
-                    <div class="matrix-cell medium">6</div>
-                    <div class="matrix-cell medium">9</div>
-                    <div class="matrix-cell high">12</div>
-                    <div class="matrix-cell high">15</div>
-                    
+                    <?php
+                    $cells3 = [
+                        ['level' => 1, 'text' => '3'],
+                        ['level' => 2, 'text' => '6'],
+                        ['level' => 2, 'text' => '9'],
+                        ['level' => 3, 'text' => '12'],
+                        ['level' => 3, 'text' => '15']
+                    ];
+                    foreach($cells3 as $cell): ?>
+                        <div class="matrix-cell level-<?= $cell['level'] ?>"><?= $cell['text'] ?></div>
+                    <?php endforeach; ?>
+
+                    <!-- Row 2 -->
                     <div class="matrix-cell header">2</div>
-                    <div class="matrix-cell low">2</div>
-                    <div class="matrix-cell low">4</div>
-                    <div class="matrix-cell medium">6</div>
-                    <div class="matrix-cell medium">8</div>
-                    <div class="matrix-cell high">10</div>
-                    
+                    <?php
+                    $cells2 = [
+                        ['level' => 1, 'text' => '2'],
+                        ['level' => 1, 'text' => '4'],
+                        ['level' => 2, 'text' => '6'],
+                        ['level' => 2, 'text' => '8'],
+                        ['level' => 3, 'text' => '10']
+                    ];
+                    foreach($cells2 as $cell): ?>
+                        <div class="matrix-cell level-<?= $cell['level'] ?>"><?= $cell['text'] ?></div>
+                    <?php endforeach; ?>
+
+                    <!-- Row 1 -->
                     <div class="matrix-cell header">1</div>
-                    <div class="matrix-cell low">1</div>
-                    <div class="matrix-cell low">2</div>
-                    <div class="matrix-cell low">3</div>
-                    <div class="matrix-cell low">4</div>
-                    <div class="matrix-cell medium">5</div>
+                    <?php
+                    $cells1 = [
+                        ['level' => 1, 'text' => '1'],
+                        ['level' => 1, 'text' => '2'],
+                        ['level' => 1, 'text' => '3'],
+                        ['level' => 1, 'text' => '4'],
+                        ['level' => 3, 'text' => '5']
+                    ];
+                    foreach($cells1 as $cell): ?>
+                        <div class="matrix-cell level-<?= $cell['level'] ?>"><?= $cell['text'] ?></div>
+                    <?php endforeach; ?>
+                    <div class="matrix-cell header footer-header">
+                    </div>
+                    <div class="matrix-cell header likelihood-label">Rare</div>
+                    <div class="matrix-cell header likelihood-label">Unlikely</div>
+                    <div class="matrix-cell header likelihood-label">Moderate</div>
+                    <div class="matrix-cell header likelihood-label">Likely</div>
+                    <div class="matrix-cell header likelihood-label">Almost Certain</div>
                 </div>
             </div>
         </div>
@@ -194,3 +237,4 @@ $content = ob_get_clean();
 $pageTitle = "Dashboard";
 $module    = "dashboard"; // Agar menu 'Dashboard' di layout jadi active
 require __DIR__ . '/../../layouts/app.blade.php';
+?>

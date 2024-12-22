@@ -3,17 +3,16 @@
     --color-dark: #1d2231;
     --text-grey: #8390a2;
     --white-color: #fff;
-    --black-pearl: #031716;
-    --tiber: #043031;
-    --atol: #0b7176;
-    --blue-chill: #0c959b;
-    --glacier: #6ba3be;
-    --blue-dianne: #274d62;
     --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     
     --card-border-radius: 0.5rem;
     --border-radius-1: 0.4rem;
     --border-radius-2: 0.8rem;
+
+    --risk-level-1: #e8f5e9;  /* Very Low */
+    --risk-level-2: #f1f8e9;  /* Low */
+    --risk-level-3: #fff3e0;  /* Medium */
+    --risk-level-4: #ffebee;  /* High */
 }
 
 /* Cards Section */
@@ -21,7 +20,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 1rem;
+    margin-top: 0rem;
 }
 
 .card-single {
@@ -31,6 +30,7 @@
     padding: 2rem;
     border-radius: var(--card-border-radius);
     transition: all 300ms ease;
+    margin-top: -2rem;
 }
 
 .card-single:hover {
@@ -78,7 +78,7 @@
 
 .chart-card h3 {
     color: var(--color-dark);
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 /* Risk Matrix */
@@ -87,23 +87,70 @@
     grid-template-columns: repeat(6, 1fr);
     gap: 0.5rem;
     padding: 1rem;
-    background: #f1f5f9;
+    background: #ffffff;
     min-width: 600px;
     margin: 0 auto;
     border-radius: var(--border-radius-1);
+    border: 1px solid #e5e7eb;
+}
+
+
+/* Header Labels */
+.main-header, .footer-header {
+    font-size: 0.85rem;
+    color: #1f2937;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start; /* Untuk Impact di atas */
+    justify-content: flex-start;
+    padding: 0.5rem;
+}
+
+
+.impact-label, .likelihood-label {
+    position: absolute;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.impact-label {
+    top: 5px;
+    left: 5px;
+}
+
+.likelihood-label {
+    bottom: 5px;
+    right: 0px;
+}
+
+.matrix-cell.header.footer-header {
+    background: transparent;
+    border: none;
+    visibility: hidden; /* atau display: none; */
 }
 
 .matrix-cell {
-    padding: 0.8rem;
-    text-align: center;
+
+    display: flex;
     border-radius: var(--border-radius-1);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
     font-weight: 500;
-    transition: all 200ms ease;
+    text-align: center;
+    position: relative;
+}
+
+.matrix-cell.header.main-header {
+    min-width: 100px;
 }
 
 .matrix-cell.header {
-    background: var(--color-dark);
-    color: var(--white-color);
+    background: #f8fafc;
+    color: #1f2937;
+    font-weight: 600;
+    border: 1px solid #e5e7eb;
 }
 
 .matrix-cell:not(.header):hover {
@@ -111,29 +158,18 @@
     cursor: pointer;
 }
 
-.matrix-cell.low { 
-    background: var(--glacier); 
-    color: var(--white-color);
-}
+.matrix-cell.level-1 { background: rgba(34, 197, 94, 0.1);}
 
-.matrix-cell.medium { 
-    background: var(--atol); 
-    color: var(--white-color);
-}
+.matrix-cell.level-2 { background: rgba(245, 158, 11, 0.1);}
 
-.matrix-cell.high { 
-    background: var(--tiber); 
-    color: var(--white-color);
-}
+.matrix-cell.level-3 { background: rgba(239, 68, 68, 0.1);}
 
-.matrix-cell.extreme { 
-    background: var(--black-pearl); 
-    color: var(--white-color);
-}
+.matrix-cell.level-4 { background: rgba(124, 58, 237, 0.1);}
+
 
 /* Recent Activities Table */
 .recent-grid {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: 100% auto;

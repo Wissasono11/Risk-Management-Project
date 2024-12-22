@@ -82,6 +82,7 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
+
 .table {
     width: 100%;
     border-collapse: separate;
@@ -196,9 +197,6 @@
     color: white;
 }
 
-
-
-
 /* Action Buttons */
 .action-group {
     display: flex;
@@ -232,98 +230,109 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
 }
-
-/* Risk Matrix styling */
-.matrix-container {
-    background: white;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.matrix-title {
-    margin-bottom: 1.5rem;
-    color: var(--color-dark);
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
 .risk-matrix {
-    border: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
-    overflow: hidden;
 }
 
-.matrix-header {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    background: #f8fafc;
-}
 
-.matrix-impacts {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+.matrix-cell {
+    padding: 1rem;
     text-align: center;
+    border-radius: var(--border-radius-1);
     font-weight: 500;
-    padding: 0.75rem;
-    border-left: 1px solid #e2e8f0;
-}
-
-.matrix-body {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-}
-
-.matrix-row {
-    display: grid;
-    grid-template-columns: 80px repeat(5, 1fr);
-    border-top: 1px solid #e2e8f0;
-}
-
-.matrix-likelihood {
+    transition: all 200ms ease;
+    min-width: 60px;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
+}
+
+.matrix-cell.header {
     background: #f8fafc;
+    color: #1f2937;
+    font-weight: 00;
+    border: 1px solid #e5e7eb;
 }
 
-.matrix-cell {
-    /* Base styling */
-    border: 1px solid #ddd;
-    padding: 1rem;
-    text-align: center;
+.matrix-cell.main-header {
+    position: relative;
 }
 
-/* Level Colors - Sesuai gambar */
+.impact-label, .likelihood-label {
+    position: absolute;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+
+.impact-label {
+    top: 5px;
+    left: 20px;
+}
+
+.likelihood-label {
+    bottom: 5px;
+    right: 20px;
+}
+
+.cell-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.cell-content .score {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cell-content .count {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Updated Level Colors */
 .matrix-cell.level-low {
-    background: #e8f5e9; /* Hijau */
-    color: #2e7d32;
-}
-
-.matrix-cell.level-minor {
-    background: #f1f8e9; /* Hijau Muda */
-    color: #7cb342;
+    background: rgba(34, 197, 94, 0.1);
+    color: #1f2937;
 }
 
 .matrix-cell.level-medium {
-    background: #fff3e0; /* Kuning/Oranye */
-    color: #ffa000;
+    background: rgba(245, 158, 11, 0.1);
+    color: #1f2937;
 }
 
 .matrix-cell.level-high {
-    background: #ffebee; /* Merah */
-    color: #ff0000;
+    background: rgba(239, 68, 68, 0.1);
+    color: #1f2937;
 }
 
-.matrix-cell:hover {
-    opacity: 0.7;
+.matrix-cell.level-very-high {
+    background: rgba(124, 58, 237, 0.1);
+    color: #1f2937;
+}
+
+.matrix-cell:not(.header):hover {
+    transform: scale(1.05);
+    z-index: 1;
     cursor: pointer;
 }
-.matrix-cell.tolerance-line {
-    border-right: 2px dashed #ff0000;
+
+.invisible {
+    visibility: hidden;
+    border: none !important;
+    background: transparent !important;
 }
+
 
 .modal {
     display: none; /* Hidden by default */
@@ -508,29 +517,6 @@
     background: #f8fafc;
     border-radius: 0.5rem;
     min-width: 100px;
-}
-
-.metric-box.result {
-    background: #eef2ff;
-    border: 2px solid #c7d2fe;
-}
-
-.metric-label {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 0.5rem;
-}
-
-.metric-value {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1f2937;
-}
-
-.metric-separator {
-    font-size: 1.5rem;
-    color: #9ca3af;
-    font-weight: 600;
 }
 
 .assessment-level {
