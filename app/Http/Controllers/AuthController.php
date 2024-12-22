@@ -8,7 +8,6 @@ class AuthController
 {
     public function showLogin()
     {
-        // Tampilkan form login
         require_once __DIR__ . '/../../../resources/views/auth/login.blade.php';
     }
 

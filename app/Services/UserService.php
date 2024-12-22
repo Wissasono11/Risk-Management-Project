@@ -136,4 +136,17 @@ class UserService implements UserInterface
             return false;
         }
     }
+
+    public function updateLastLogin($userId)
+    {
+        try {
+            $sql = "UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("i", $userId);
+            return $stmt->execute();
+        } catch (mysqli_sql_exception $e) {
+            error_log("Error updating last login: " . $e->getMessage());
+            return false;
+        }
+    }
 }
