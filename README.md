@@ -73,7 +73,7 @@ Sebuah sistem manajemen risiko berbasis web yang dirancang untuk memantau dan me
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/risk-management.git
+git clone https://github.com/wissasono19/risk-management.git
 ```
 ### 2. Setup Database
 Buat database dengan nama bbp_risk_management
